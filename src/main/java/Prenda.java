@@ -6,9 +6,9 @@ public class Prenda {
 
   //prendaValida(prenda); //este tiene el ultimo requerimiento que una prenda tenga un tipo valido para su categoria
 
-  public Prenda(TipoDePrenda tipo, Material.Trama trama, Color colorPrincipal, Color colorSecundario, String nombre) {
+  public Prenda(TipoDePrenda tipo, Material.Trama trama, Color colorPrincipal, Color colorSecundario, Material.TipoMaterial material) {
     this.tipoDePrenda = tipo;
-    this.material = new Material(trama, colorPrincipal, colorSecundario, nombre);
+    this.material = new Material(trama, colorPrincipal, colorSecundario, material);
   }
 
   public TipoDePrenda.Categoria categoria() {

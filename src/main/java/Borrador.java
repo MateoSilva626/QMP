@@ -6,7 +6,7 @@ public class Borrador {
   Material.Trama trama = Material.Trama.LISA;
   Color colorPrincipal;
   Color colorSecundario;
-  String nombre;
+  Material.TipoMaterial material;
 
   public void setColorPrincipal(Color colorPrincipal) {
     this.colorPrincipal = Objects.requireNonNull(colorPrincipal, "Color principal es obligatorio");
@@ -16,8 +16,8 @@ public class Borrador {
     this.colorSecundario = colorSecundario;
   }
 
-  public void setNombre(String nombre) {
-    this.nombre = Objects.requireNonNull(nombre, "Nombre es obligatorio");
+  public void setTipoMaterial(Material.TipoMaterial material) {
+    this.material = Objects.requireNonNull(material, "Nombre es obligatorio");
   }
 
   public void setTipo(TipoDePrenda tipo) {
@@ -35,7 +35,7 @@ public class Borrador {
   public Prenda crearPrenda() {
 
     //hay que hacer un if dependiendo de si el colorSec es null. Si lo es, tenemos que usar otra
-      return new Prenda(tipo, trama, colorPrincipal, colorSecundario, nombre);
+      return new Prenda(tipo, trama, colorPrincipal, colorSecundario, material);
 
   }
 

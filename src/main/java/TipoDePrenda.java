@@ -9,18 +9,6 @@ public class TipoDePrenda {
     ACCESORIOS
   }
 
-  public enum tipo {
-    REMERA,
-    PANTALON,
-    POLLERA,
-    CAMISA_MANGA_LARGA,
-    CAMISA_MANGO_CORTA,
-    ZAPATOS,
-    BOTAS,
-    ZAPATILLAS,
-    ACCESORIOS
-  }
-
   public TipoDePrenda(Categoria categoria) {
     this.categoria = categoria;
   }
@@ -29,7 +17,10 @@ public class TipoDePrenda {
     return this.categoria;
   }
 
-  //vemos donde va
-  //static final TipoDePrenda ZAPATO = new TipoDePrenda(Categoria.CALZADO);
+  //SE DEJAN ACA POR CONVENIENCIA??
+  static final TipoDePrenda ZAPATO = new TipoDePrenda(Categoria.CALZADO);
+  static final TipoDePrenda CHOMBA = new TipoDePrenda(Categoria.PARTE_SUPERIOR);
+  static final TipoDePrenda PANTALON = new TipoDePrenda(Categoria.PARTE_INFERIOR);
+  static final TipoDePrenda CAMISA = new TipoDePrenda(Categoria.PARTE_SUPERIOR);
 }
 
