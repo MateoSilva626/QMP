@@ -1,10 +1,13 @@
-# QMP1
+# QMP2
 
-Primera iteracion QMP
+Segunda iteracion QMP2
 
-![diagrama](diagrama.png)
+![diagrama](diagrama2.png)
 
 ## Integrantes
+- Felipe Nani
+- Nicolas Galfione
+- Ignacio Villarruel
 - Mateo Nicolas Silva Trinidad
 - Alexander Kalinin
 - Nicolas Daniel Occhi
