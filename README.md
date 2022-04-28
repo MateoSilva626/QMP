@@ -2,7 +2,7 @@
 
 Segunda iteracion QMP2
 
-![diagrama](diagrama.png)
+![diagrama](QMP - Diagrama2.png)
 
 ## Integrantes
 - Felipe Nani
