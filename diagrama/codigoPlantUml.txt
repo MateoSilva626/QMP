@@ -1,0 +1,79 @@
+
+
+
+@startuml
+
+Borrador --> Prenda
+Borrador..> TipoPrenda
+Borrador..> Color
+Borrador..> Material
+
+Prenda ..> TipoPrenda
+Prenda ..> Material
+
+
+Material ..> Color
+
+Uniforme -->Borrador
+
+Uniforme <|-- UniformeSanJuan
+Uniforme <|-- UniformeJohnson
+
+class Uniforme{
+-prendaSup: Prenda
+-prendaInf: Prenda
+-calzado: Prenda
+
+crearUniforme()
+fabricarParteSuperior()
+fabricarParteInf()
+fabricarCalzado()
+}
+
+class UniformeSanJuan{}
+class UniformeJohnson{}
+
+class Borrador{
+-tipo
+-trama
+-colorPrincipal
+-colorSecundario
+-material
+
+setColorPrincipal()
+setColorSecundario()
+SetTipoMaterial()
+setTipo()
+setTrana()
+crearPrenda()
+}
+
+
+class Prenda{
+tipoDePrenda
+material
+
+categoria()
+}
+
+class TipoPrenda{
+-categoria: Enum
+}
+
+class Material{
+-trama:
+-colorPrincipal:
+-colorSecundario:
+-tipoMaterial:
+
+}
+
+class Color{
+-rojo: Int
+-azul: Int
+-verde: Int
+
+
+}
+
+@enduml
