@@ -5,11 +5,9 @@ public class Prenda {
   Material material;
   Color colorPrincipal;
   Color colorSecundario;
-
   // POR QMP3
   int usosActuales = 0;
   Estado estado = Estado.LIMPIA;
-  boolean puedeSerSugerida = true;
 
 
   // VAMOS A TENER ESTADOS
@@ -20,6 +18,10 @@ public class Prenda {
     LAVANDOSE
   }
 
+  //esto todavia no tenemos data (KISS)??
+  boolean cumpleCondClimaticas(Clima clima) {
+    return true;
+  }
 
 /*
 quiero indicar que una prenda ha sido puesta a lavar.
@@ -30,13 +32,11 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
   void ponerALavar() {
     //se podria hacer un manejo de errores para que nada mas venga de sucia o limpia
     this.estado = Estado.LAVANDOSE;
-    this.puedeSerSugerida = false;
-
   }
 
   void sacarDeLavado() {
     this.estado = Estado.LIMPIA;
-    this.puedeSerSugerida = true;
+    this.usosActuales= 0;
   }
 
 
@@ -46,11 +46,18 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
       this.cambiarEstado(Estado.SUCIA);
     } else if (usosActuales == 3) {
       this.cambiarEstado(Estado.PERCUDIDA);
-      puedeSerSugerida = false;
     }
 
   }
 
+  boolean esSugerible() {
+    boolean aDevolver = false;
+
+    if(this.estado == Estado.LIMPIA || this.estado == Estado.SUCIA) {
+      aDevolver=true;
+    }
+    return aDevolver;
+  }
 
   private void cambiarEstado(Estado estado) {
     this.estado = estado;

@@ -1,53 +1,66 @@
 import java.util.Set;
+import java.util.stream.Collectors;
 
-class Sugerencia {
-  Prenda prendaTorso;
-  Prenda prendaPierna;
-  Prenda prendaPies;
+public interface Sugerencia {
 
-  public void Sugerencia(Clima clima) {
-    this.prendaTorso = fabricarTorso(clima);
-    this.prendaPierna = fabricarPierna(clima);
-    this.prendaPies = fabricarPies(clima);
-    
-    //la aplicación asuma que una prenda ha sido usada.
-    prendaTorso.usarPrenda();
-    prendaPierna.usarPrenda();
-    prendaPies.usarPrenda();
+  Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas);
+  Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas);
+  Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas);
+  Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas);
+
+  //segunda idea
+  //public Set<Prenda> sugerirAtuendo(Clima clima, Set<Prenda> guardarropas);
+
+//todo
+ // Como usuario QueMePongo, quiero que al aparecer en una sugerencia, la aplicación asuma que una prenda ha sido usada.
+  // HACER FOREACH DEL SET PARA AUMENTAR EN 1 EL USO DE CADA PRENDAAL SER SUGERIDA.
+
+  public class SugerenciaCompleta implements Sugerencia {
+
+    public Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas) {
+      return guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_SUPERIOR)
+      ).collect(Collectors.toSet());
+    }
+
+    public Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas) {
+      return guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_INFERIOR)
+      ).collect(Collectors.toSet());
+    }
+
+    public Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas) {
+      return guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.CALZADO)
+      ).collect(Collectors.toSet());
+    }
+
+    //todo
+    //justo en este caso deberia ser vacio el set creemos
+    public Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas) {
+      return guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.ACCESORIOS)
+      ).collect(Collectors.toSet());
+    }
+
+    //segunda idea
+    //public Set<Prenda> sugerirAtuendo(Clima clima, Set<Prenda> guardarropas) {
+    //  Set<Prenda> prendasAtuendo;
+    //}
+
   }
 
-  public Prenda fabricarTorso(Clima clima) {
+    //todo
+    //public class SugerenciaConAccesorios implements Sugerencia { }
+    //todo
+    //public class SugerenciaSinSuperposicion implements Sugerencia { }
 
-    return null;
   }
-
-  public Prenda fabricarPierna(Clima clima) {
-
-    return null;
-  }
-
-  public Prenda fabricarPies(Clima clima) {
-
-    return null;
-  }
-
-
-}
-
-class AtuendoConAccesorio inherits Atuendo{
-
-}
-
-
-/*
-
-
- OK? * quiero recibir una sugerencia de prendas que me vista completamente (torso, piernas y pies).
-
- OK?* quiero que una sugerencia pueda incluir accesorios (guantes, gorros, bufandas, anteojos de sol, etc).
-
- NO TENEMOS EL GUARDAROPAS, LO TENIAMOS EN EL USUARIO * quiero recibir varias sugerencias que combinen las prendas de mi guardarropas
-
- DE LA FORMA QUE LO HICIMOS NO PUEDEN HABER MAS DE UNA ENTONCES YA ESTARIA? * quiero que una sugerencia cubra cada parte del cuerpo con no más de una prenda, es decir, evitando superposiciones. (capas)
-
- * */
