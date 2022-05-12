@@ -1,6 +1,3 @@
-
-
-
 @startuml
 
 Borrador --> Prenda
