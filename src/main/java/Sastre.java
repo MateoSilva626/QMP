@@ -29,11 +29,13 @@ public class Sastre {
   }
 
   //todo
-  /*Set<Atuendo> sugerirAtuendos(Set<Prenda> guardarropas) {
+  Set<Atuendo> sugerirAtuendos(Sugerencia sugerencia, Set<Prenda> guardarropas, Integer cantidad) {
+    Set<Atuendo> atuendos = new HashSet<>();
 
-    return new Atuendo(
-        sugerencia.sugerirAtuendo()
-    );
+    for (int i = 0; i < cantidad; i++) {
+      atuendos.add(this.sugerirAtuendo(sugerencia, guardarropas));
+    }
 
-  }*/
+    return atuendos;
+  }
 }

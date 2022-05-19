@@ -1,17 +1,34 @@
+import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public interface Sugerencia {
 
   Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas);
+
   Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas);
+
   Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas);
+
   Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas);
 
-  //segunda idea
-  //public Set<Prenda> sugerirAtuendo(Clima clima, Set<Prenda> guardarropas);
+  /*
+  public Atuendo sugerirAtuendo(Clima clima, Set<Prenda> guardarropas) {
+
+    Set<Set<Prenda>> prendasSugeridas = new HashSet<>();
+    prendasSugeridas.add(sugerirParteSuperior(clima, guardarropas));
+    prendasSugeridas.add(sugerirParteInferior(clima, guardarropas));
+    prendasSugeridas.add(sugerirCalzado(clima, guardarropas));
+    prendasSugeridas.add(sugerirAccesorios(clima, guardarropas));
+
+    Atuendo atuendoCompleto = new Atuendo(prendasSugeridas.stream().flatMap(Set::stream).collect(Collectors.toSet()));
+
+    return atuendoCompleto;
+  }*/
 
   public class SugerenciaCompleta implements Sugerencia {
+
 
     public Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas) {
       Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
@@ -70,58 +87,104 @@ public interface Sugerencia {
   }
 
   public class SugerenciaConAccesorios implements Sugerencia {
-      public Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas) {
-        Set<Prenda> prendasSugeridas =  guardarropas.stream().filter(
-            prenda -> prenda.esSugerible() &&
-                prenda.cumpleCondClimaticas(clima) &&
-                (prenda.categoria() == TipoDePrenda.Categoria.PARTE_SUPERIOR)
-        ).collect(Collectors.toSet());
 
-        prendasSugeridas.forEach(Prenda::usarPrenda);
+    public Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_SUPERIOR)
+      ).collect(Collectors.toSet());
 
-        return prendasSugeridas;
-      }
+      prendasSugeridas.forEach(Prenda::usarPrenda);
 
-      public Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas) {
-        Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
-            prenda -> prenda.esSugerible() &&
-                prenda.cumpleCondClimaticas(clima) &&
-                (prenda.categoria() == TipoDePrenda.Categoria.PARTE_INFERIOR)
-        ).collect(Collectors.toSet());
+      return prendasSugeridas;
+    }
 
-        prendasSugeridas.forEach(Prenda::usarPrenda);
+    public Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_INFERIOR)
+      ).collect(Collectors.toSet());
 
-        return prendasSugeridas;
-      }
+      prendasSugeridas.forEach(Prenda::usarPrenda);
 
-      public Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas) {
-        Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
-            prenda -> prenda.esSugerible() &&
-                prenda.cumpleCondClimaticas(clima) &&
-                (prenda.categoria() == TipoDePrenda.Categoria.CALZADO)
-        ).collect(Collectors.toSet());
+      return prendasSugeridas;
+    }
 
-        prendasSugeridas.forEach(Prenda::usarPrenda);
+    public Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendasSugeridas = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.CALZADO)
+      ).collect(Collectors.toSet());
 
-        return prendasSugeridas;
-      }
+      prendasSugeridas.forEach(Prenda::usarPrenda);
 
-      public Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas) {
-        Set<Prenda> accesoriosSugeridos = guardarropas.stream().filter(
-            prenda -> prenda.esSugerible() &&
-                prenda.cumpleCondClimaticas(clima) &&
-                (prenda.categoria() == TipoDePrenda.Categoria.ACCESORIOS)
-        ).collect(Collectors.toSet());
+      return prendasSugeridas;
+    }
 
-        accesoriosSugeridos.forEach(Prenda::usarPrenda);
+    public Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> accesoriosSugeridos = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.ACCESORIOS)
+      ).collect(Collectors.toSet());
 
-        return accesoriosSugeridos;
-      }
+      accesoriosSugeridos.forEach(Prenda::usarPrenda);
+
+      return accesoriosSugeridos;
+    }
   }
-    //todo
-    //public class SugerenciaSinSuperposicion implements Sugerencia { }
-    // pipe propone hacer de la forma que se venia haciendo arriba pero hacerle un .findFirst() al Set de prendas sugeridas
-    // para agarrar UNICAMENTE una prenda de cada parte del cuerpo, ya que pide SIN SUPERPOSICION
-    // el inconveniente es que cada metodo NO devuelve una sola prenda, sino que devuelve un Set<Prenda>, por ende: como
-    // planteamos? creamos un set que tenga solo ese elemento sugerido para que no rompa con el tipo que devuelva?
+
+  public class SugerenciaSinSuperposicion implements Sugerencia {
+
+    public Set<Prenda> sugerirParteSuperior(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendaSugerida = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_SUPERIOR)
+      ).limit(1).collect(Collectors.toSet());
+
+      prendaSugerida.forEach(Prenda::usarPrenda);
+
+      return prendaSugerida;
+    }
+
+    public Set<Prenda> sugerirParteInferior(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendaSugerida = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.PARTE_INFERIOR)
+      ).limit(1).collect(Collectors.toSet());
+
+      prendaSugerida.forEach(Prenda::usarPrenda);
+
+      return prendaSugerida;
+    }
+
+    public Set<Prenda> sugerirCalzado(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> prendaSugerida = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.CALZADO)
+      ).limit(1).collect(Collectors.toSet());
+
+      prendaSugerida.forEach(Prenda::usarPrenda);
+
+      return prendaSugerida;
+    }
+
+    public Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas) {
+      Set<Prenda> accesorioSugerido = guardarropas.stream().filter(
+          prenda -> prenda.esSugerible() &&
+              prenda.cumpleCondClimaticas(clima) &&
+              (prenda.categoria() == TipoDePrenda.Categoria.ACCESORIOS)
+      ).limit(1).collect(Collectors.toSet());
+
+      accesorioSugerido.forEach(Prenda::usarPrenda);
+
+      return accesorioSugerido;
+    }
+  }
 }
