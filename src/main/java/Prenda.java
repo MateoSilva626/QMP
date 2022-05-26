@@ -23,8 +23,7 @@ public class Prenda {
 
   //esto todavia no tenemos data (KISS)??
   boolean cumpleCondClimaticas(Clima clima) {
-    return true;
-    //return temperaturaMaxima <= clima.temperaturaActual;
+    return temperaturaMaxima <= clima.temperatura();
   }
 
 /*

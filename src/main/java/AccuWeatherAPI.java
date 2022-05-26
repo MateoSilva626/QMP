@@ -3,7 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class accuWeatherAPI {
+public final class AccuWeatherAPI {
+
   public final List<Map<String, Object>> getWeather(String ciudad) {
 
     return Arrays.asList(new HashMap<String, Object>() {{
@@ -22,5 +23,6 @@ public class accuWeatherAPI {
       }});
     }});
   }
+
 
 }
