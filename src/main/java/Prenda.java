@@ -9,6 +9,9 @@ public class Prenda {
   int usosActuales = 0;
   Estado estado = Estado.LIMPIA;
 
+  // POR QMP4
+  int temperaturaMaxima;
+
 
   // VAMOS A TENER ESTADOS
   public enum Estado {
@@ -21,6 +24,7 @@ public class Prenda {
   //esto todavia no tenemos data (KISS)??
   boolean cumpleCondClimaticas(Clima clima) {
     return true;
+    //return temperaturaMaxima <= clima.temperaturaActual;
   }
 
 /*

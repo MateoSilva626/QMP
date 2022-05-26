@@ -28,7 +28,6 @@ public class Sastre {
     //return new Atuendo(sugerencia.sugerirAtuendo(new Clima(), guardarropas));
   }
 
-  //todo
   Set<Atuendo> sugerirAtuendos(Sugerencia sugerencia, Set<Prenda> guardarropas, Integer cantidad) {
     Set<Atuendo> atuendos = new HashSet<>();
 
