@@ -11,4 +11,9 @@ class Atuendo {
     this.calzado = calzado;
     this.accesorio = accesorio;
   }
+
+  public boolean aptaParaTemperatura(int temperatura) {
+    return this.prendaSup.aptaTemperatura(temperatura)
+      && this.prendaInf.aptaTemperatura(temperatura) && this.calzado.aptaTemperatura(temperatura);
+  }
 }
