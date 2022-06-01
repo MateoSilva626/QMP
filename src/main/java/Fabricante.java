@@ -1,13 +1,13 @@
 class Fabricante {
 
 
+  Atuendo fabricar(Instituto instituto) {
 
-  Uniforme fabricar(Instituto instituto) {
-
-    return new Uniforme(
+    return new Atuendo(
         instituto.fabricarParteSuperior(),
         instituto.fabricarParteInferior(),
-        instituto.fabricarCalzado()
+        instituto.fabricarCalzado(),
+        null
     );
 
   }

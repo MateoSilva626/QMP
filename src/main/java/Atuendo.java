@@ -1,11 +1,14 @@
-import java.util.Set;
+class Atuendo {
 
-public class Atuendo {
+  Prenda prendaSup;
+  Prenda prendaInf;
+  Prenda calzado;
+  Prenda accesorio;
 
-    final Set<Prenda> prendas;
-
-    Atuendo(Set<Prenda> prendasNuevas) {
-      this.prendas = prendasNuevas;
-    }
-
+  Atuendo(Prenda prendaSup, Prenda prendaInf, Prenda calzado, Prenda accesorio) {
+    this.prendaSup = prendaSup;
+    this.prendaInf = prendaInf;
+    this.calzado = calzado;
+    this.accesorio = accesorio;
+  }
 }
