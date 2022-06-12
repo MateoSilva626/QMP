@@ -69,8 +69,47 @@ class Color{
 -rojo: Int
 -azul: Int
 -verde: Int
+}
 
+Enum Humedad {
 
 }
+
+Class EstadoDelTiempo {
+int temperatura
+Humedad humedad
+}
+
+EstadoDelTiempo --> Humedad
+
+class AsesorDelImagen {
+Atuendo sugerirAtuendo(String direccion,Guardarropas guardaropas)
+}
+
+AsesorDelImagen ..> ServicioMetereologico
+EstadoDelTiempo ..> ServicioMetereologico
+
+Interface ServicioMetereologico{
+EstadoDelTiempo obtenercondicionesClimaticas(String direccion)
+}
+
+ServicioMetereologico <|.. ServicioMetereologicoAccuWeather
+ServicioMetereologico <|.. ServicioMetereologicoMock
+ServicioMetereologico <|.. ServicioMetereologicoTheWeatherChannel
+
+class ServicioMetereologicoAccuWeather {
+EstadoDelTiempo obtenerCondicionesClimaticas(String direccion)
+}
+
+ServicioMetereologicoAccuWeather --> AccuWeatherAPI
+
+class AccuWeatherAPI{
+Map getWeather()
+}
+
+class ServicioMetereologicoMock{}
+
+class ServicioMetereologicoTheWeatherChannel{}
+
 
 @enduml

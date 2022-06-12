@@ -1,5 +1,5 @@
 import java.util.Objects;
-
+import
 public class Borrador {
 
   TipoDePrenda tipo;

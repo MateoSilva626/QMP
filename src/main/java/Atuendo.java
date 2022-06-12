@@ -16,4 +16,8 @@ class Atuendo {
     return this.prendaSup.aptaTemperatura(temperatura)
       && this.prendaInf.aptaTemperatura(temperatura) && this.calzado.aptaTemperatura(temperatura);
   }
+
+
 }
+
+
