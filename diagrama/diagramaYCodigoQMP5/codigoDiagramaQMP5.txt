@@ -1,0 +1,60 @@
+@startuml
+
+Usuario --> Guardarropas 
+
+Guardarropas --> Prenda
+Guardarropas -->"*" PropuestaModificacion 
+
+class Usuario {
+
+agregarGuardarropas(guardaropas)
+quitarGuardarropas(guardaropas)
+}
+
+
+
+class Guardarropas {
+
+agregarPrenda(prenda)
+quitarPrenda(prenda)
+}
+
+
+
+class Prenda {
+
+}
+
+
+abstract PropuestaModificacion {
+aceptarEn(guardaropas)
+deshacerEn(guardaropas)
+realizarAceptacionEn(guardaropas)
+}
+
+PropuestaModificacion  --> Estado
+
+PropuestaModificacion<|-- PropuestaAgregado 
+
+PropuestaModificacion <|-- PropuestaQuitado
+
+
+
+
+class PropuestaQuitado {
+
+}
+
+class PropuestaAgregado {
+
+}
+
+Enum Estado {
+PENDIENTE , APROBADA , RECHAZADA
+}
+
+
+
+
+
+@enduml
