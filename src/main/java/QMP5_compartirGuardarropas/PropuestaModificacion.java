@@ -5,9 +5,11 @@ import Prenda.Prenda;
 
 abstract public class PropuestaModificacion {
 
-    // TODO  aceptarEn(guardaropas)
+    //esto lo puso villa, la verdad que no entendi muy bien y lo hice como me parecio
+    // TODO aceptarEn(guardaropas)
     // TODO deshacerEn(guardaropas)
     // TODO realizarAceptacionEn(guardaropas)
+
     Estado estadoPropuesta;
     Prenda prenda;
     Guardarropa guardarropa;
@@ -19,7 +21,7 @@ abstract public class PropuestaModificacion {
     }
 
     enum Estado{
-        PENDIENTE,APROBADA,RECHAZADA
+        PENDIENTE, APROBADA, RECHAZADA
     }
 
     public void aceptarPropuesta(PropuestaModificacion propuestaModificacion){

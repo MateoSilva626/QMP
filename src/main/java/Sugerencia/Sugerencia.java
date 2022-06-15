@@ -1,8 +1,11 @@
+package Sugerencia;
+
 import Clima.Clima;
 import Prenda.Prenda;
 
 import java.util.Set;
 import java.util.stream.Collectors;
+import Prenda.TipoDePrenda;
 
 public interface Sugerencia {
 

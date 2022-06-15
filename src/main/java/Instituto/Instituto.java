@@ -1,3 +1,5 @@
+package Instituto;
+
 import Prenda.Prenda;
 import Prenda.Borrador;
 import Prenda.TipoDePrenda;

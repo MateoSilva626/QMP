@@ -1,3 +1,5 @@
+package Atuendo;
+
 import Atuendo.Atuendo;
 import Clima.Clima;
 import Guardarropa.Guardarropa;
@@ -5,12 +7,14 @@ import Guardarropa.Guardarropa;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import Clima.EstadoDelTiempo;
+
 public class Estilista {
   private Clima servicioMeteorologico;
 
-  public Atuendo sugerirAtuendo(String direccion, Guardarropa guardarropas) {
-    EstadoDelTiempo estadoDelTiempo = this.servicioMeteorologico()
-        .obtenerCondicionesClimaticas(direccion);
+  public Atuendo sugerirAtuendo(Guardarropa guardarropas) {
+    EstadoDelTiempo estadoDelTiempo = this.servicioMeteorologico
+        .obtenerCondicionesClimaticas();
     List<Atuendo> combinaciones = guardarropas.sugerirAtuendos();
 
     return combinaciones.stream()

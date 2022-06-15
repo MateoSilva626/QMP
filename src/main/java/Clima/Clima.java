@@ -9,7 +9,7 @@ import java.util.Map;
 public class Clima {
   private Map<String, Object> ultimaRespuesta;
   private LocalDateTime proximaExpiracion;
-  private EstadoDelTiempo estadoDelTiempo;
+  public EstadoDelTiempo estadoDelTiempo;
 
   public AccuWeatherAPI apiClima;
   public Duration periodoDeValidez;
@@ -34,14 +34,13 @@ public class Clima {
     if (this.ultimaRespuesta == null || this.expiro()) {
       this.ultimaRespuesta = apiClima.getWeather(ciudad).get(0);
       this.proximaExpiracion = LocalDateTime.now().plus(this.periodoDeValidez);
-      temperatura = (int) ultimaRespuesta.get("Temperatura").get("Value");
+      temperatura = (int) ultimaRespuesta.get("Temperatura").get("Value"); //tira error auqnue deberia estar bien
       estadoDelTiempo = new EstadoDelTiempo(temperatura);
     }
 
     return estadoDelTiempo;
   }
   private boolean expiro() {
-
     return proximaExpiracion.isAfter(LocalDateTime.now());
   }
 

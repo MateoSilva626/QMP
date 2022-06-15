@@ -13,7 +13,7 @@ public class Guardarropa {
 
   final Set<Prenda> prendas;
 
-  Guardarropa(Set<Prenda> prendasNuevas) {
+  public Guardarropa(Set<Prenda> prendasNuevas) {
     this.prendas = prendasNuevas;
   }
 
@@ -68,7 +68,7 @@ public class Guardarropa {
   }
 
 
-  List<Atuendo> sugerirAtuendos() {
+  public List<Atuendo> sugerirAtuendos() {
 
     Set<Prenda> partesSuperior = this.sugerirParteSuperior(new Clima());
     Set<Prenda> partesInferior = this.sugerirParteInferior(new Clima());

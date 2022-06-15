@@ -1,4 +1,7 @@
+package Atuendo;
+
 import Atuendo.Atuendo;
+import Instituto.Instituto;
 
 public class Sastre {
 

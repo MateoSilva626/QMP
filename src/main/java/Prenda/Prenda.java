@@ -27,7 +27,7 @@ public class Prenda {
 
   //esto todavia no tenemos data (KISS)??
   public boolean cumpleCondClimaticas(Clima clima) {
-    return temperaturaMaxima >= clima.temperatura();
+    return temperaturaMaxima >= clima.estadoDelTiempo.getTemperatura();
   }
 
   public boolean aptaTemperatura(int temperatura) {

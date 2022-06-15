@@ -1,11 +1,11 @@
 @startuml
 
-Usuario --> Guardarropas 
+Usuario.Usuario --> Guardarropas
 
 Guardarropas --> Prenda.Prenda
 Guardarropas -->"*" PropuestaModificacion 
 
-class Usuario {
+class Usuario.Usuario {
 
 agregarGuardarropas(guardaropas)
 quitarGuardarropas(guardaropas)

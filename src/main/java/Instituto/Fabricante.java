@@ -1,4 +1,7 @@
+package Instituto;
+
 import Atuendo.Atuendo;
+import Instituto.Instituto;
 
 class Fabricante {
 
