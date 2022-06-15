@@ -1,21 +1,20 @@
 package QMP5_compartirGuardarropas;
 
-import Guardarropa.Guardarropa;
+import Usuario.Guardarropa;
 import Prenda.Prenda;
 
 public class PropuestaAgregado extends PropuestaModificacion {
 
 
-  public PropuestaAgregado(Prenda prenda, Guardarropa guardarropa) {
-    super(prenda, guardarropa);
+  public PropuestaAgregado(Prenda prenda) {
+    super(prenda);
   }
 
-  public void modificarPrenda() {
-    guardarropa.sacarPrenda(prenda);
-  }
-
-  public void aprobarPropuesta() {
+  public void realizarAceptacion(Guardarropa guardarropa) {
     guardarropa.agregarPrenda(prenda);
+  }
+  public void deshacerPropuesta(Guardarropa guardarropa){
+    guardarropa.sacarPrenda(this.prenda);
   }
 
 }

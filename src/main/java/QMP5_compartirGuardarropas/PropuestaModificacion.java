@@ -1,45 +1,42 @@
 package QMP5_compartirGuardarropas;
 
-import Guardarropa.Guardarropa;
+import Usuario.Guardarropa;
 import Prenda.Prenda;
 
 abstract public class PropuestaModificacion {
 
-    //esto lo puso villa, la verdad que no entendi muy bien y lo hice como me parecio
-    // TODO aceptarEn(guardaropas)
-    // TODO deshacerEn(guardaropas)
-    // TODO realizarAceptacionEn(guardaropas)
+  //esto lo puso villa, la verdad que no entendi muy bien y lo hice como me parecio
+  // TODO aceptarEn(guardaropas)
+  // TODO deshacerEn(guardaropas)
+  // TODO realizarAceptacionEn(guardaropas)
 
-    Estado estadoPropuesta;
-    Prenda prenda;
-    Guardarropa guardarropa;
+  public Estado estadoPropuesta;
+  public Prenda prenda;
 
-    public PropuestaModificacion(Prenda prenda, Guardarropa guardarropa){
-        this.prenda = prenda;
-        this.guardarropa = guardarropa;
-        this.estadoPropuesta = Estado.PENDIENTE;
-    }
 
-    enum Estado{
-        PENDIENTE, APROBADA, RECHAZADA
-    }
+  public PropuestaModificacion(Prenda prenda) {
+    this.prenda = prenda;
+    this.estadoPropuesta = Estado.PENDIENTE;
+  }
 
-    public void aceptarPropuesta(PropuestaModificacion propuestaModificacion){
-        estadoPropuesta = Estado.APROBADA;
-        propuestaModificacion.aprobarPropuesta();
-    }
+  public enum Estado {
+    PENDIENTE, APROBADA, RECHAZADA
+  }
 
-    public void rechazarPropuesta(PropuestaModificacion propuestaModificacion){
-        estadoPropuesta = Estado.RECHAZADA;
-    }
+  public void aceptarPropuesta(Guardarropa guardarropa) {
+    estadoPropuesta = Estado.APROBADA;
+    this.realizarAceptacion(guardarropa);
+  }
+  public abstract void realizarAceptacion(Guardarropa guardarropa);
 
-    //aca solo hay que tener en cuenta que deshaces las cuales hayas aceptado, no se puede
-    // deshacer una rechazada
-    public void deshacerPropuesta(PropuestaModificacion propuestaModificacion){
-        this.modificarPrenda();
-        estadoPropuesta = Estado.PENDIENTE;
-    }
+  public void rechazarPropuesta() {
+    estadoPropuesta = Estado.RECHAZADA;
+  }
 
-    public abstract void modificarPrenda();
-    public abstract void aprobarPropuesta();
+
+  public abstract void deshacerPropuesta(Guardarropa guardarropa);
+
+
+
+
 }
