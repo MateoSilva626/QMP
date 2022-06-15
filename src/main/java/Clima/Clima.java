@@ -1,3 +1,4 @@
+package Clima;
 
 import implementacionAccuWeather.AccuWeatherAPI;
 
@@ -50,7 +51,7 @@ public class Clima {
   List<Map<String, Object>> condicionesClimaticas;
 
   //hay que poner que cada prenda o cada guardarropa tenga su ciudad
-  public Clima(String ciudad) {
+  public Clima.Clima(String ciudad) {
     this.condicionesClimaticas = apiClima.getWeather(ciudad);
   }
 

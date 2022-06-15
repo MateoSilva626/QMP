@@ -1,11 +1,15 @@
-class Atuendo {
+package Atuendo;
+
+import Prenda.Prenda;
+
+public class Atuendo {
 
   Prenda prendaSup;
   Prenda prendaInf;
   Prenda calzado;
   Prenda accesorio;
 
-  Atuendo(Prenda prendaSup, Prenda prendaInf, Prenda calzado, Prenda accesorio) {
+  public Atuendo(Prenda prendaSup, Prenda prendaInf, Prenda calzado, Prenda accesorio) {
     this.prendaSup = prendaSup;
     this.prendaInf = prendaInf;
     this.calzado = calzado;

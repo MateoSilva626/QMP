@@ -1,3 +1,5 @@
+import Atuendo.Atuendo;
+
 class Fabricante {
 
 

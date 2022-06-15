@@ -1,3 +1,5 @@
+package Clima;
+
 public class EstadoDelTiempo {
 
   int temperatura;

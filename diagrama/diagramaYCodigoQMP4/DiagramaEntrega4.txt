@@ -3,22 +3,22 @@ Enum Humedad {
 
 }
 
-Class EstadoDelTiempo {
+Class Clima.EstadoDelTiempo {
 int temperatura
 Humedad humedad
 }
 
-EstadoDelTiempo --> Humedad
+Clima.EstadoDelTiempo --> Humedad
 
 class AsesorDelImagen {
-Atuendo sugerirAtuendo(String direccion,Guardarropas guardaropas)
+Atuendo.Atuendo sugerirAtuendo(String direccion,Guardarropas guardaropas)
 }
 
 AsesorDelImagen ..> ServicioMetereologico
-EstadoDelTiempo ..> ServicioMetereologico
+Clima.EstadoDelTiempo ..> ServicioMetereologico
 
 Interface ServicioMetereologico{
-EstadoDelTiempo obtenercondicionesClimaticas(String direccion)
+Clima.EstadoDelTiempo obtenercondicionesClimaticas(String direccion)
 }
 
 ServicioMetereologico <|.. ServicioMetereologicoAccuWeather
@@ -26,7 +26,7 @@ ServicioMetereologico <|.. ServicioMetereologicoMock
 ServicioMetereologico <|.. ServicioMetereologicoTheWeatherChannel
 
 class ServicioMetereologicoAccuWeather {
-EstadoDelTiempo obtenerCondicionesClimaticas(String direccion)
+Clima.EstadoDelTiempo obtenerCondicionesClimaticas(String direccion)
 }
 
 ServicioMetereologicoAccuWeather --> AccuWeatherAPI

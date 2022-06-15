@@ -1,5 +1,6 @@
-import java.util.HashSet;
-import java.util.Optional;
+import Clima.Clima;
+import Prenda.Prenda;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,15 +15,15 @@ public interface Sugerencia {
   Set<Prenda> sugerirAccesorios(Clima clima, Set<Prenda> guardarropas);
 
   /*
-  public Atuendo sugerirAtuendo(Clima clima, Set<Prenda> guardarropas) {
+  public Atuendo.Atuendo sugerirAtuendo(Clima.Clima clima, Set<Prenda.Prenda> guardarropas) {
 
-    Set<Set<Prenda>> prendasSugeridas = new HashSet<>();
+    Set<Set<Prenda.Prenda>> prendasSugeridas = new HashSet<>();
     prendasSugeridas.add(sugerirParteSuperior(clima, guardarropas));
     prendasSugeridas.add(sugerirParteInferior(clima, guardarropas));
     prendasSugeridas.add(sugerirCalzado(clima, guardarropas));
     prendasSugeridas.add(sugerirAccesorios(clima, guardarropas));
 
-    Atuendo atuendoCompleto = new Atuendo(prendasSugeridas.stream().flatMap(Set::stream).collect(Collectors.toSet()));
+    Atuendo.Atuendo atuendoCompleto = new Atuendo.Atuendo(prendasSugeridas.stream().flatMap(Set::stream).collect(Collectors.toSet()));
 
     return atuendoCompleto;
   }*/
@@ -74,13 +75,13 @@ public interface Sugerencia {
       return guardarropas.stream().filter(
           prenda -> prenda.esSugerible() &&
               prenda.cumpleCondClimaticas(clima) &&
-              (prenda.categoria() == TipoDePrenda.Categoria.ACCESORIOS)
+              (prenda.categoria() == Prenda.TipoDePrenda.Categoria.ACCESORIOS)
       ).collect(Collectors.toSet());
     }*/
 
       //segunda idea
-      //public Set<Prenda> sugerirAtuendo(Clima clima, Set<Prenda> guardarropas) {
-      //  Set<Prenda> prendasAtuendo;
+      //public Set<Prenda.Prenda> sugerirAtuendo(Clima.Clima clima, Set<Prenda.Prenda> guardarropas) {
+      //  Set<Prenda.Prenda> prendasAtuendo;
       //}
 
     }

@@ -1,3 +1,7 @@
+package Prenda;
+
+import Clima.Clima;
+
 import java.util.Objects;
 
 public class Prenda {
@@ -22,11 +26,11 @@ public class Prenda {
   }
 
   //esto todavia no tenemos data (KISS)??
-  boolean cumpleCondClimaticas(Clima clima) {
+  public boolean cumpleCondClimaticas(Clima clima) {
     return temperaturaMaxima >= clima.temperatura();
   }
 
-  boolean aptaTemperatura(int temperatura) {
+  public boolean aptaTemperatura(int temperatura) {
     return this.temperaturaMaxima >= temperatura;
   }
 
@@ -47,7 +51,7 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
   }
 
 
-  void usarPrenda() {
+  public void usarPrenda() {
     this.usosActuales++;
     if (usosActuales == 2) {
       this.cambiarEstado(Estado.SUCIA);
@@ -57,7 +61,7 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
 
   }
 
-  boolean esSugerible() {
+  public boolean esSugerible() {
     boolean aDevolver = false;
 
     if(this.estado == Estado.LIMPIA || this.estado == Estado.SUCIA) {
@@ -101,7 +105,7 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
  * */
 
 
- /*public void validarTipoPrenda(TipoDePrenda tipoPrenda) {
+ /*public void validarTipoPrenda(Prenda.TipoDePrenda tipoPrenda) {
 
     if (!tipoPrenda.contains(tipoPrenda)) {
       throw new tipoPrenda(tipoPrenda);

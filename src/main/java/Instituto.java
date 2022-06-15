@@ -1,4 +1,8 @@
-
+import Prenda.Prenda;
+import Prenda.Borrador;
+import Prenda.TipoDePrenda;
+import Prenda.Color;
+import Prenda.Material;
 public interface Instituto {
 
   Prenda fabricarParteSuperior();

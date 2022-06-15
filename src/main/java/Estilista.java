@@ -1,5 +1,8 @@
+import Atuendo.Atuendo;
+import Clima.Clima;
+import Guardarropa.Guardarropa;
+
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Estilista {

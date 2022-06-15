@@ -1,25 +1,25 @@
 @startuml
 
-Borrador --> Prenda
-Borrador..> TipoPrenda
-Borrador..> Color
-Borrador..> Material
+Prenda.Borrador --> Prenda.Prenda
+Prenda.Borrador..> TipoPrenda
+Prenda.Borrador..> Prenda.Color
+Prenda.Borrador..> Prenda.Material
 
-Prenda ..> TipoPrenda
-Prenda ..> Material
+Prenda.Prenda ..> TipoPrenda
+Prenda.Prenda ..> Prenda.Material
 
 
-Material ..> Color
+Prenda.Material ..> Prenda.Color
 
-Uniforme -->Borrador
+Uniforme -->Prenda.Borrador
 
 Uniforme <|-- UniformeSanJuan
 Uniforme <|-- UniformeJohnson
 
 class Uniforme{
--prendaSup: Prenda
--prendaInf: Prenda
--calzado: Prenda
+-prendaSup: Prenda.Prenda
+-prendaInf: Prenda.Prenda
+-calzado: Prenda.Prenda
 
 crearUniforme()
 fabricarParteSuperior()
@@ -30,7 +30,7 @@ fabricarCalzado()
 class UniformeSanJuan{}
 class UniformeJohnson{}
 
-class Borrador{
+class Prenda.Borrador{
 -tipo
 -trama
 -colorPrincipal
@@ -46,7 +46,7 @@ crearPrenda()
 }
 
 
-class Prenda{
+class Prenda.Prenda{
 tipoDePrenda
 material
 
@@ -57,7 +57,7 @@ class TipoPrenda{
 -categoria: Enum
 }
 
-class Material{
+class Prenda.Material{
 -trama:
 -colorPrincipal:
 -colorSecundario:
@@ -65,7 +65,7 @@ class Material{
 
 }
 
-class Color{
+class Prenda.Color{
 -rojo: Int
 -azul: Int
 -verde: Int
@@ -75,22 +75,22 @@ Enum Humedad {
 
 }
 
-Class EstadoDelTiempo {
+Class Clima.EstadoDelTiempo {
 int temperatura
 Humedad humedad
 }
 
-EstadoDelTiempo --> Humedad
+Clima.EstadoDelTiempo --> Humedad
 
 class AsesorDelImagen {
-Atuendo sugerirAtuendo(String direccion,Guardarropas guardaropas)
+Atuendo.Atuendo sugerirAtuendo(String direccion,Guardarropas guardaropas)
 }
 
 AsesorDelImagen ..> ServicioMetereologico
-EstadoDelTiempo ..> ServicioMetereologico
+Clima.EstadoDelTiempo ..> ServicioMetereologico
 
 Interface ServicioMetereologico{
-EstadoDelTiempo obtenercondicionesClimaticas(String direccion)
+Clima.EstadoDelTiempo obtenercondicionesClimaticas(String direccion)
 }
 
 ServicioMetereologico <|.. ServicioMetereologicoAccuWeather
@@ -98,7 +98,7 @@ ServicioMetereologico <|.. ServicioMetereologicoMock
 ServicioMetereologico <|.. ServicioMetereologicoTheWeatherChannel
 
 class ServicioMetereologicoAccuWeather {
-EstadoDelTiempo obtenerCondicionesClimaticas(String direccion)
+Clima.EstadoDelTiempo obtenerCondicionesClimaticas(String direccion)
 }
 
 ServicioMetereologicoAccuWeather --> AccuWeatherAPI

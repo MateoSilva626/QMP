@@ -1,8 +1,11 @@
-import com.google.common.collect.Sets;
+package Guardarropa;
 
-import java.util.HashSet;
+import Atuendo.Atuendo;
+import Clima.Clima;
+import Prenda.Prenda;
+import com.google.common.collect.Sets;
+import Prenda.TipoDePrenda;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -94,6 +97,14 @@ public class Guardarropa {
         .map((list) -> new Atuendo(list.get(0), list.get(1), list.get(2), list.get(3)))
         .collect(Collectors.toList());
 
+  }
+
+  public void agregarPrenda(Prenda prenda) {
+    prendas.add(prenda);
+  }
+
+  public void sacarPrenda(Prenda prenda) {
+    prendas.remove(prenda);
   }
 
 }

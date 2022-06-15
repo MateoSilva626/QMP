@@ -1,3 +1,5 @@
+package Prenda;
+
 import java.util.Objects;
 
 public class Material {
@@ -5,7 +7,7 @@ public class Material {
   private Trama trama;
   private TipoMaterial material;
 
-  // private enum Material nombre; -> en caso de que sepamos que los tipos de materiales sea un conjunto finito.
+  // private enum Prenda.Material nombre; -> en caso de que sepamos que los tipos de materiales sea un conjunto finito.
   public enum Trama {
     LISA, RAYADA, CON_LUNARES, A_CUADROS, CON_ESTAMPADO
   }

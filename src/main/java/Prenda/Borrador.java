@@ -1,5 +1,10 @@
+package Prenda;
+
 import java.util.Objects;
-import
+//import Prenda.Prenda;
+//import Prenda.TipoDePrenda;
+//import Prenda.Material;
+//import Prenda.Color;
 public class Borrador {
 
   TipoDePrenda tipo;
@@ -9,7 +14,7 @@ public class Borrador {
   Material.TipoMaterial material;
 
   public void setColorPrincipal(Color colorPrincipal) {
-    this.colorPrincipal = Objects.requireNonNull(colorPrincipal, "Color principal es obligatorio");
+    this.colorPrincipal = Objects.requireNonNull(colorPrincipal, "Prenda.Color principal es obligatorio");
   }
 
   public void setColorSecundario(Color colorSecundario) {

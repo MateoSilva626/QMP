@@ -2,7 +2,7 @@
 
 Usuario --> Guardarropas 
 
-Guardarropas --> Prenda
+Guardarropas --> Prenda.Prenda
 Guardarropas -->"*" PropuestaModificacion 
 
 class Usuario {
@@ -21,7 +21,7 @@ quitarPrenda(prenda)
 
 
 
-class Prenda {
+class Prenda.Prenda {
 
 }
 

@@ -1,3 +1,5 @@
+package Prenda;
+
 public class TipoDePrenda {
 
   Categoria categoria;

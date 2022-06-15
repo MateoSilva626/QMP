@@ -1,8 +1,14 @@
+import QMP5_compartirGuardarropas.PropuestaModificacion;
 
-
-
+import java.util.List;
 
 public class Usuario {
+
+  List<PropuestaModificacion> propuestas;
+
+  public void agregarPropuesta(PropuestaModificacion propuesta) {
+    propuestas.add(propuesta);
+  }
     /*
      ---------------Primer punto---------------------
      Como usuario, quiero poder manejar varios guardarropas para separar
