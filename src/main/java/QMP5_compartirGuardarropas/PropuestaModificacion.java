@@ -37,6 +37,10 @@ abstract public class PropuestaModificacion {
   public abstract void deshacerPropuesta(Guardarropa guardarropa);
 
 
+  // agrego este metodo para no perder encapsulamiento en la clase guardarropa (tema visto 16/06 con nato)
+  public boolean esPropuestaPendiente(){
+    return this.estadoPropuesta == Estado.PENDIENTE;
+  }
 
 
 }

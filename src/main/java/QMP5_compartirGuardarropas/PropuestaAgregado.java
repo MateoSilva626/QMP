@@ -17,4 +17,5 @@ public class PropuestaAgregado extends PropuestaModificacion {
     guardarropa.sacarPrenda(this.prenda);
   }
 
+
 }

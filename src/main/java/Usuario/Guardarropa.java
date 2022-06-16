@@ -119,7 +119,7 @@ public class Guardarropa {
 
 
   public List<PropuestaModificacion>  propuestasDeModificacionPendientes(){
-   return this.propuestas.stream().filter(propuesta -> propuesta.estadoPropuesta == PropuestaModificacion.Estado.PENDIENTE).collect(Collectors.toList());
+   return this.propuestas.stream().filter(propuesta -> propuesta.esPropuestaPendiente()).collect(Collectors.toList());
   }
 
 }
