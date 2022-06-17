@@ -2,12 +2,59 @@ package Usuario;
 
 import Prenda.Prenda;
 import QMP5_compartirGuardarropas.PropuestaModificacion;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class Usuario {
+
+  public PropuestaModificacion recibirSugerenciaDiaria(PropuestaModificacion sugerenciaDiara){  // deberiamos usar el propuestaModificacion?
+   // TODO recibirugerencia();
+  }
+
+  public conocerUltimasAlertasMetereologicas(){
+
+  }
+
+  /* <----------------------------------- CONSIGNA ----------------------------------->
+
+ TODO Como usuario quiero tener una sugerencia diaria de qué ponerme y que  todas las mañanas, diariamente,esta sea actualizada
+
+
+
+TODO Como usuario  quiero poder conocer cuáles son las últimas alertas meteorológicas publicadas
+ en el sistema para estar informado (pudiendo verlas, por ejemplo, al entrar en quemepongo.com)
+
+
+
+TODO Como usuario  quiero que se actualice mi sugerencia diaria con las condiciones
+      climáticas actualizadas cuando se genere algún alerta durante el día
+
+
+
+TODO Como usuario quiero tener la posibilidad de que ante una alerta de tormenta la app me
+      notifique que debo llevarme también un paraguas
+
+
+
+TODO Como usuario  quiero que ante una alerta meteorológica de granizo la app  me notifique que evite salir en auto
+
+
+
+TODO Como usuario  quiero poder recibir un mail avisándome si se generó algún alerta meteorológico y cuál
+
+
+
+TODO      Como usuario  quiero poder configurar cuáles de estas acciones (notificaciones, mail, recálculo)
+          quiero que se ejecuten y cuáles no, además de soportar nuevas acciones a futuro.
+          (No nos interesará, sin embargo, soportar nuevas alertas)
+
+  <----------------------------------- CONSIGNA ----------------------------------->
+  */
+
+
 
 
   List<Guardarropa> guardarropas = new ArrayList<>();
