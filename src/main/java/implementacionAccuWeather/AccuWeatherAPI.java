@@ -25,4 +25,13 @@ public final class AccuWeatherAPI {
       }});
     }});
   }
+
+
+  public final Map<String, Object> getAlertas(String ciudad) {
+    return new HashMap<String, Object>() {{  //Devuelve un objeto como [“STORM”, “HAIL”, ...]
+      put("CurrentAlerts", Arrays.asList("STORM", "HAIL"));
+    }};
+  }
+
 }
+

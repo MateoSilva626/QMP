@@ -25,6 +25,13 @@ public class Prenda {
     LAVANDOSE
   }
 
+  public Prenda(TipoDePrenda tipo, Material.Trama trama, Color colorPrincipal, Color colorSecundario, Material.TipoMaterial material) {
+    this.tipoDePrenda = tipo;
+    this.colorPrincipal = colorPrincipal;
+    this.colorSecundario = colorSecundario;
+    this.material = new Material(trama, material);
+  }
+
   //esto todavia no tenemos data (KISS)??
   public boolean cumpleCondClimaticas(Clima clima) {
     return temperaturaMaxima >= clima.estadoDelTiempo.getTemperatura();
@@ -77,12 +84,7 @@ quiero que una prenda no pueda ser sugerida mientras está lavándose.
 
   //prendaValida(prenda); //este tiene el ultimo requerimiento que una prenda tenga un tipo valido para su categoria
 
-  public Prenda(TipoDePrenda tipo, Material.Trama trama, Color colorPrincipal, Color colorSecundario, Material.TipoMaterial material) {
-    this.tipoDePrenda = tipo;
-    this.colorPrincipal = colorPrincipal;
-    this.colorSecundario = colorSecundario;
-    this.material = new Material(trama, material);
-  }
+
 
   public TipoDePrenda.Categoria categoria() {
     return tipoDePrenda.getCategoria();

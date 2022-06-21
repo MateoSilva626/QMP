@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class PronosticoUnaHora {
 
   LocalDateTime DateTime;
-  int  epochDateTime;
+  int epochDateTime;
   int weatherIcon;
   String iconPhrase;
   boolean isDaylight;

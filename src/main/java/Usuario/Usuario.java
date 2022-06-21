@@ -1,26 +1,59 @@
 package Usuario;
 
+import Atuendo.Atuendo;
 import Prenda.Prenda;
+import QMP5_compartirGuardarropas.PropuestaAgregado;
 import QMP5_compartirGuardarropas.PropuestaModificacion;
+import Sugerencia.Sugerencia;
+import Sugerencia.SugerenciaCompleta;
 import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
 public class Usuario {
 
-  public PropuestaModificacion recibirSugerenciaDiaria(PropuestaModificacion sugerenciaDiara){  // deberiamos usar el propuestaModificacion?
-   // TODO recibirugerencia();
+  Atuendo SugerenciaDiaria;
+  List<Guardarropa> guardarropas = new ArrayList<>();
+
+  public void agregarPropuesta(Guardarropa guardarropa, PropuestaModificacion propuesta) {
+    guardarropa.agregarPropuesta(propuesta);
   }
 
-  public conocerUltimasAlertasMetereologicas(){
-
+  public void agregarGuardarropa(Guardarropa guardarropa) {
+    guardarropas.add(guardarropa);
   }
+
+  public void sugerirPrendaAUnUsuario(Usuario usuario, Guardarropa guardarropa, PropuestaModificacion propuesta) {
+    usuario.agregarPropuesta(guardarropa, propuesta);
+  }
+
+  public void aceptarPropuesta(PropuestaModificacion propuesta, Guardarropa guardarropa) {
+    propuesta.aceptarPropuesta(guardarropa);
+  }
+
+  public void rechazarPropuesta(PropuestaModificacion propuesta) {
+    propuesta.rechazarPropuesta();
+  }
+
+  public void deshacerPropuesta(PropuestaModificacion propuesta, Guardarropa guardarropa) {
+    propuesta.deshacerPropuesta(guardarropa);
+  }
+
+  public PropuestaModificacion calcularSugerenciaDiaria(){
+    return new PropuestaAgregado();
+  }
+
+  public void actualizarSugerenciaDiaria(){
+    this.propuestaDiaria = this.calcularSugerenciaDiaria();
+  }
+
 
   /* <----------------------------------- CONSIGNA ----------------------------------->
 
- TODO Como usuario quiero tener una sugerencia diaria de qué ponerme y que  todas las mañanas, diariamente,esta sea actualizada
+TODO Como usuario quiero tener una sugerencia diaria de qué ponerme y que  todas las mañanas, diariamente,esta sea actualizada
 
 
 
@@ -53,37 +86,6 @@ TODO      Como usuario  quiero poder configurar cuáles de estas acciones (notif
 
   <----------------------------------- CONSIGNA ----------------------------------->
   */
-
-
-
-
-  List<Guardarropa> guardarropas = new ArrayList<>();
-
-  public void agregarPropuesta(Guardarropa guardarropa, PropuestaModificacion propuesta) {
-    guardarropa.agregarPropuesta(propuesta);
-  }
-
-  public void agregarGuardarropa(Guardarropa guardarropa) {
-    guardarropas.add(guardarropa);
-  }
-
-  public void sugerirPrendaAUnUsuario(Usuario usuario, Guardarropa guardarropa, PropuestaModificacion propuesta) {
-    usuario.agregarPropuesta(guardarropa, propuesta);
-  }
-
-  public void aceptarPropuesta(PropuestaModificacion propuesta, Guardarropa guardarropa) {
-    propuesta.aceptarPropuesta(guardarropa);
-  }
-
-  public void rechazarPropuesta(PropuestaModificacion propuesta) {
-    propuesta.rechazarPropuesta();
-  }
-
-  public void deshacerPropuesta(PropuestaModificacion propuesta, Guardarropa guardarropa) {
-    propuesta.deshacerPropuesta(guardarropa);
-  }
-
-
 
   /*
   public void crearGuardarropaCompartido(Set<Prenda> prendas, List<Usuario> usuarios) {

@@ -1,6 +1,16 @@
 package Empresa;
 
+
 public class Empleado {
+
+    public void dispararCalculoSugerenciasDiaras(ListaAlerta listaAlerta){
+        listaAlerta.mandarSugerencias(); //o es agregar un observer??
+    }
+
+    
+
+}
+
 
     /* <----------------------------------- CONSIGNA ----------------------------------->
     TODO Como empleado quiero poder disparar el cálculo de sugerencias diarias para todos
@@ -13,12 +23,3 @@ public class Empleado {
 
      <----------------------------------- CONSIGNA ----------------------------------->
      */
-
-    public void dispararCalculoSugerenciasDiaras(){
-        //TODO     si es el principío del dia, dejamos q corra la sugerencia  else --> rompemos
-        //TODO        listacontodoslosusuarios.recibirSugerenciaDiara
-    }
-
-    
-
-}
